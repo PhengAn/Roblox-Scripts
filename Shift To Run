@@ -1,0 +1,25 @@
+game:GetService("UserInputService").InputBegan:connect(function(input,gameprocesed)
+ if input.KeyCode == Enum.KeyCode.LeftShift then
+  for i = 1,16 do
+   wait()
+   game.Workspace.Camera.FieldOfView = game.Workspace.Camera.FieldOfView + 0
+   game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed + 1
+  end
+ end
+end)
+
+game:GetService("UserInputService").InputEnded:connect(function(input,gameprocesed)
+ if input.KeyCode == Enum.KeyCode.LeftShift then
+  for i = 1,16 do
+   wait()
+   game.Workspace.Camera.FieldOfView = game.Workspace.Camera.FieldOfView - 0
+   game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed - 1
+  end
+ end
+end)
+
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Died:connect(function()
+ game.Workspace.Camera.FieldOfView = 70
+ game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+ script.Disabled = true
+end)
